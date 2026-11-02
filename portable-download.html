@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>短剧单集制作技能 · 保存安装包</title>
+<h1>短剧单集制作技能</h1>
+<p>完整解压从 GitHub 下载的仓库，并保留本页与 portable-parts 文件夹的位置。</p>
+<button disabled id="save">保存便携安装包 ZIP</button><p id="status">正在检查安装包…</p>
+<script>const parts = [];</script>
+<script src="./portable-parts/part-01.js"></script>
+<script src="./portable-parts/part-02.js"></script>
+<script src="./portable-parts/part-03.js"></script>
+<script src="./portable-parts/part-04.js"></script>
+<script src="./portable-parts/part-05.js"></script>
+<script src="./portable-parts/part-06.js"></script>
+<script src="./portable-parts/part-07.js"></script>
+<script src="./portable-parts/part-08.js"></script>
+<script src="./portable-parts/part-09.js"></script>
+<script src="./portable-parts/part-10.js"></script>
+<script src="./portable-parts/part-11.js"></script>
+<script src="./portable-parts/part-12.js"></script>
+<script src="./portable-parts/part-13.js"></script>
+<script src="./portable-parts/part-14.js"></script>
+<script src="./portable-parts/part-15.js"></script>
+<script src="./portable-parts/part-16.js"></script>
+<script>
+(async () => {
+  const status = document.getElementById("status");
+  try {
+    const expected = "985fe9013ebb58303c305daba3d7ea48f9b4feeea3874c034c073864e70c2735";
+    const chunks = Array.from({length: 16}, (_, i) => {
+      if (typeof parts[i] !== "string") throw Error("缺少分片 " + (i+1));
+      return Uint8Array.from(atob(parts[i]), c => c.charCodeAt(0));
+    });
+    const blob = new Blob(chunks, {type: "application/zip"});
+    if (blob.size !== 11037624) throw Error("文件长度不符");
+    const digest = await crypto.subtle.digest("SHA-256", await blob.arrayBuffer());
+    const hex = Array.from(new Uint8Array(digest), v => v.toString(16).padStart(2,"0")).join("");
+    if (hex !== expected) throw Error("SHA-256 不符");
+    status.textContent = "校验通过。Windows 解压后双击 Install-Windows.cmd，macOS / Linux 运行 sh ./install.sh。";
+    const save = document.getElementById("save");
+    const url = URL.createObjectURL(blob);
+    save.disabled = false;
+    save.onclick = () => { const a = document.createElement("a"); a.href = url; a.download = "short-drama-episode-workflow-portable.zip"; document.body.append(a); a.click(); a.remove(); };
+  } catch (e) { status.textContent = "无法读取安装包：" + e.message; }
+})();
+</script></html>
