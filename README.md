@@ -4,6 +4,8 @@
 
 对白场景默认优先双人同框与连续交流，减少机械的逐句单人正反打；在重要信息、决定或情绪转折处保留有作用的近景。分镜、起始图、视频提示词与剪辑共同落实，创作者另有要求时按其要求执行。
 
+在 Codex 连接官方 LibTV 插件并授权后，可读取 LibTV 定稿、复用画布资产、按实时积分投产，并将本地验收版同步回本集画布。续作沿用项目渠道。详见 [LibTV 画布制作](./short-drama-episode-workflow/references/libtv-production.md)。
+
 ## 在另一台电脑安装
 
 1. 使用有权限的 GitHub 账号[下载整个仓库 ZIP](https://github.com/MCphy007/short-drama-episode-workflow/archive/refs/heads/main.zip)，完整解压。
@@ -15,4 +17,4 @@
 
 [浏览总控 SKILL.md](./short-drama-episode-workflow/SKILL.md)。安装包内还有完整的可编辑源码、交付审核标准、安装器源码和六种系统及架构组合的安装器。
 
-当前便携 ZIP 为 11,214,154 字节，SHA-256 为 `20e3786217a73d5f1cc890303983df84fb18b77d189f02a24d2efefa9fc446b1`。
+当前便携 ZIP 为 11,041,423 字节，SHA-256 为 `0be266a6ae3672b07c156f57274d0bef70dbe30e8fa9ca20af3fd5c457338d37`。
