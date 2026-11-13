@@ -26,13 +26,13 @@
 (async () => {
   const status = document.getElementById("status");
   try {
-    const expected = "e1126aee56482be274c4fd49448d33b3160bc609f7e5f27a5f5704209c6939fa";
+    const expected = "be69cc595ec44a15247243dee719caac3e48d996276a588e15e74287e3ea8f68";
     const chunks = Array.from({length: 17}, (_, i) => {
       if (typeof parts[i] !== "string") throw Error("缺少分片 " + (i+1));
       return Uint8Array.from(atob(parts[i]), c => c.charCodeAt(0));
     });
     const blob = new Blob(chunks, {type: "application/zip"});
-    if (blob.size !== 11043695) throw Error("文件长度不符");
+    if (blob.size !== 11044451) throw Error("文件长度不符");
     const digest = await crypto.subtle.digest("SHA-256", await blob.arrayBuffer());
     const hex = Array.from(new Uint8Array(digest), v => v.toString(16).padStart(2,"0")).join("");
     if (hex !== expected) throw Error("SHA-256 不符");
