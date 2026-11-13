@@ -17,4 +17,4 @@
 
 [浏览总控 SKILL.md](./short-drama-episode-workflow/SKILL.md)。安装包内还有完整的可编辑源码、交付审核标准、安装器源码和六种系统及架构组合的安装器。
 
-当前便携 ZIP 为 11,042,086 字节，SHA-256 为 `755401c74727b34a44fcea3c06b8c9d2ff3eae28b8d143648fd4ecc5be655ff6`。
+当前便携 ZIP 为 11,043,072 字节，SHA-256 为 `b61333708aad20009b8ab570b4d15c478f7a4dfc48d1f9473d438b2ad9ad9a58`。
